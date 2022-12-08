@@ -126,3 +126,155 @@ for (let i = 1; i <= 100; i++)
   bank_account += i;
 bonus = bank_account * 2
 console.log(bonus)
+// III. Arrays & Control flow
+
+
+
+// A. Talk about it:
+// What are the things in an array called?
+elements
+// Do Arrays guarantee those things will be in order?
+yes, the order they are entered they will stay in that order
+// What real-life thing could you model with an array?
+shopping list, list of favorite books, list of places etc.
+
+
+// B. Easy Does It
+// Create an array that contains three quotes and store it in a variable called quotes
+
+let quotes = ["live & laugh", "stay positive", "Focus & win"]
+
+// C. Accessing elements
+// Given the following array const randomThings = [1, 10, "Hello", true]
+const randomThings = [1, 10, "Hello", true]
+// How do you access the 1st element in the array?
+console.log(randomThings[0])
+// Change the value of "Hello"to "World"
+for (let i = 1; i < randomThings.length; i++)
+  if (randomThings[i] == "Hello")
+    randomThings[i] = ("World")
+
+// Check the value of the array to make sure it updated the array. How? Why, yes! console.log();
+console.log(randomThings)
+
+
+// D. Change values
+// Given the following array const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"]
+const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"]
+// What would you write to access the 3rd element of the array?
+console.log(ourClass[2])
+// Change the value of "Github" to "Octocat"
+for (let i = 1; i < ourClass.length; i++)
+  if (ourClass[i] == "Github")
+    ourClass[i] = ("Octocat")
+// Add a new element, "Cloud City" to the array
+ourClass.push("Cloud City")
+console.log(ourClass)
+
+
+// E. Mix It Up
+// Note: You don't really need .splice()for these. You could use it, but there are simpler array methods that are more appropriate.
+
+// Given the following array: const myArray = [5, 10, 500, 20]
+const myArray = [5, 10, 500, 20]
+
+// Add the string "Aegon"to the end of the array. Add another string of your choice to the end of the array.
+myArray.push("Aegon", "400")
+console.log(myArray)
+// Remove the 5from the beginning of the array.
+myArray.shift()
+// Add the string "Bob Marley"to the beginning of the array.
+myArray.unshift("Bob Marley")
+// Remove the string of your choice from the end of the array.
+myArray.pop()
+// Reverse this array using Array.prototype.reverse(). Did you mutate the array? What does mutate mean? Did the .reverse()method return anything?
+myArray.reverse()
+console.log("reveresed Array", myArray)
+
+//yes original array is mutated with the .reverse() method
+
+// F. Biggie Smalls
+// Create a variable that contains an integer.
+let num = 30
+// Write an if ... elsestatement that:
+
+// console.log()s "little number" if the number is entered is less than 100
+// console.log()s big numberif the number is greater than or equal to 100.
+if (num < 100)
+  console.log("Little Number")
+else
+  console.log("big Number")
+
+
+// G. Monkey in the Middle
+// Write an if ... else if ... elsestatement:
+
+// console.log()little numberif the number entered is less than 5.
+// If the number entered is more than 10, log big number.
+// Otherwise, log "monkey".
+let num = 30
+if (num < 5)
+  console.log("Little Number")
+else if (num > 10)
+  console.log("Big Number")
+else
+  console.log("Monkey")
+
+//Part H.
+
+const kristynsCloset = [
+  "left shoe",
+  "cowboy boots",
+  "right sock",
+  "GA hoodie",
+  "green pants",
+  "yellow knit hat",
+  "marshmallow peeps"
+];
+
+// Thom's closet is more complicated. Check out this nested data structure!!
+const thomsCloset = [
+  [
+    // These are Thom's shirts
+    "grey button-up",
+    "dark grey button-up",
+    "light blue button-up",
+    "blue button-up",
+  ], [
+    // These are Thom's pants
+    "grey jeans",
+    "jeans",
+    "PJs"
+  ], [
+    // Thom's accessories
+    "wool mittens",
+    "wool scarf",
+    "raybans"
+  ]
+];
+// What's Kristyn wearing today? Using bracket notation to access items in kristynsCloset, log the sentence "Kristyn is rocking that " + the third item in Kristyn's closet + " today!" to the console.
+console.log("Kristyn is rocking that " + kristynsCloset[2] + " today!")
+// Kristyn just bought some sweet shades! Add "raybans"to her closet after "yellow knit hat".
+
+
+// Kristyn spilled coffee on her hat... modify this item to read "stained knit hat"instead of yellow.
+kristynsCloset.forEach((el) => {
+  if (kristynsCloset[el] == "yellow knit hat") {
+    kristynsCloset.splice(el, 1);
+    kristynsCloset[el] = "raybans"
+  }
+})
+// Put together an outfit for Thom! Using bracket notation, access the first element in Thom's shirtsarray.
+// In the same way, access one item from Thom's pants array.
+// Access one item from Thom's accessories array.
+// Log a sentence about what Thom's wearing. Example: "Thom is looking fierce in a grey button-up, jeans and wool scarf!"
+console.log(`Thom is looking fierce in a ${thomsCloset[0][0]}, ${thomsCloset[1][1]}, and ${thomsCloset[2][1]}!`)
+// Get more specific about what kind of PJs Thom's wearing this winter. Modify the name of his PJ pants to Footie Pajamas.
+for (let i = 0; i < thomsCloset.length; i++) {
+  for (let j = 0; j < thomsCloset[i].length; j++) {
+    if (thomsCloset[i][j] == "PJs")
+      thomsCloset[i][j] = "Footie Pajamas"
+
+  }
+}
+console.log(thomsCloset)
